@@ -7,6 +7,8 @@
 /**
  *
  * @author kshitijkarthick
+ * @version 1.0
+ * main Window.java Produces GUI Output for Predictive Keyboard.
  */
 import Dictionary.Dictionary;
 import java.io.IOException;
@@ -23,6 +25,10 @@ public class mainWindow extends javax.swing.JFrame {
         initComponents();
     }
     public static int upperCase=0;
+    /**
+     * @link Dictionary Used to create an object of Dictionary Type used from Dictionary.java
+     * Dictionary.txt is the file used to store all the words used in the Predictive Keyboard
+     */
     Dictionary trie=new Dictionary("Dictionary.txt");
     /**
      * This method is called from within the constructor to initialize the form.
@@ -597,12 +603,23 @@ public class mainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt Event received of the Change of Case button clicked
+     * switches case when the button is pressed.
+     */
     private void caseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caseButtonActionPerformed
         if(upperCase==0)
         upperCase=1;
         else
         upperCase=0;
     }//GEN-LAST:event_caseButtonActionPerformed
+    /**
+     * 
+     * @param ch Receives Special Character (" ",".",",") and adds the previous word to the dictonary trie
+     * by using addWord function in Dictionary.java 
+     * @link Dictionary
+     */
     private void specialButtonAction(char ch){
         String text=textArea.getText();
         //System.out.println(text);
@@ -759,6 +776,12 @@ public class mainWindow extends javax.swing.JFrame {
             ch='F';
         letterAction(ch);
     }//GEN-LAST:event_fButtonActionPerformed
+    /**
+     * 
+     * @param ch Receives the character clicked from the user and predicts the probable word based on rank
+     * by calling predictWord() from Dictionary.java
+     * @link Dictionary 
+     */
     private void letterAction(char ch){
         clearLabel();
         String text=textArea.getText();
@@ -905,6 +928,11 @@ public class mainWindow extends javax.swing.JFrame {
             ch='Q';
         letterAction(ch);
     }//GEN-LAST:event_qButtonActionPerformed
+    /**
+     * 
+     * @param num Receives the label clicked by the User, extracts the word clicked and writes it in the
+     * text are
+     */
     private void labelSelect(int num){
         String word;
         switch(num){
@@ -1026,7 +1054,14 @@ public class mainWindow extends javax.swing.JFrame {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         labelSelect(12);
     }//GEN-LAST:event_jLabel12MouseClicked
-
+    /**
+     * 
+     * @param evt Receives the event that a key is pressed in the text Area
+     * calls specialFunction from mainWindow.java if special key is entered to add new word in dictionary
+     * else predicts the word by calling predictWord() from Dictionary.java
+     * @link Dictionary
+     * @link mainWindow
+     */
     private void textAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textAreaKeyReleased
         clearLabel();
         String text=textArea.getText();

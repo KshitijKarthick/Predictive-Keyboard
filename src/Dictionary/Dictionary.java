@@ -7,7 +7,7 @@
 package Dictionary;
 
 /**
- *
+ * @version 1.0
  * @author kshitijkarthick
  */
 import java.io.BufferedReader;
@@ -16,12 +16,21 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+/**
+ * @link Dictionary Constructs a Trie Data Structure and provides all method functionality to search for a word,add a word ,traverse through the trie to predict
+ * possible words based on rank.
+ * @author kshitijkarthick
+ */
 public class Dictionary {	
 	Node root;
 	public static int fileload;
 	public static int noOfWords;
 	public String[] s=new String[10000];
 	public int[] rank=new int[10000];
+        /**
+         * 
+         * @param filename Receives the filename of the stored words as Dictionary to be added into the trie while constructing and instance of it 
+         */
 	public Dictionary(String filename) {
 		try {
 				fileload=0;
@@ -43,7 +52,10 @@ public class Dictionary {
 	public Dictionary(){
 		System.err.print("Error No Input File");
 	}
-	
+	/**
+         * 
+         * @param word Receives the word to be added to the constructed trie
+         */
 	public void addWord(String word) {
 		char ch;
 		Node temp=root;
@@ -100,6 +112,11 @@ public class Dictionary {
 		
 		
 	}
+        /**
+         * 
+         * @param word Receives the word which needs to be searched in the trie constructed.
+         * @return 1 if the word is present in the Constructed Tree and 0 if it is absent
+         */
 	public int searchWord(String word) {
 		char ch;
 		int flag=1;
@@ -122,6 +139,12 @@ public class Dictionary {
 			return 0;
 		}
 	}
+        /**
+         * 
+         * @param text Receives the text for which Prediction should be made
+         * @return Array of Strings which are the top 12 predicted possible words based on rank
+         * @throws IOException If Input needs to be taken for manual debugging
+         */
 	public String[] predict(String text)throws IOException{
 		char ch;
 		String word="";
@@ -162,6 +185,9 @@ public class Dictionary {
 		}
 		return s;
 	}
+        /**
+         * Sorts the Predicted words by Rank in Descending Order
+         */
 	public void sort(){
 		int pos,temp;
 		String stemp;
@@ -180,6 +206,12 @@ public class Dictionary {
 			s[j]=stemp;
 		}
 	}
+        /**
+         * 
+         * @param word Receives the Word for which Prediction should be made
+         * @param wordCount Depicts the number of words possible from the current Node
+         * @param temp is the Current Node used to Traverse through the trie
+         */
 	public void predictTraversal(String word, int wordCount, Node temp) {
 		if(temp.end==1){
 			s[noOfWords]=word;
@@ -210,6 +242,13 @@ public class Dictionary {
 		//trie.predict();
 			}
 }
+/**
+ * @link Node Creates a Class whose instance creates a single node of the Dictionary having 256 ascii characters as links to Other instances of Node
+ * has the rank to depict usage of every word and end to depict if a certain node is the end of a particular word.
+ * Implements a trie Data Structure
+ * 
+ * @author kshitijkarthick
+ */
 class Node {
 	Node[] link=new Node[256];
 	int rank;
