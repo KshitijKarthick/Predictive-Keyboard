@@ -62,7 +62,7 @@ public class Dictionary {
 		if(searchWord(word)==0){
 			for(int i=0;i<word.length();i++){
 				ch=word.charAt(i);
-				ch=Character.toLowerCase(ch);
+				//ch=Character.toLowerCase(ch);
 				if(temp.link[ch]==null){
 					Node temp2=new Node();
 					temp.link[ch]=temp2;
@@ -93,7 +93,7 @@ public class Dictionary {
 			//System.out.println("AddWord:Word is already Present");
 			for(int i=0;i<word.length();i++){
 				ch=word.charAt(i);
-				ch=Character.toLowerCase(ch);
+				//ch=Character.toLowerCase(ch);
 				temp=temp.link[ch];
 				temp.rank++;
 				//System.out.println("addWord:Rank level "+(i+1)+":"+temp.rank+":"+(char)ch);
@@ -123,7 +123,7 @@ public class Dictionary {
 		Node temp=root;
 		for(int i=0;i<word.length()&&flag==1;i++){
 			ch=word.charAt(i);
-			ch=Character.toLowerCase(ch);
+			//ch=Character.toLowerCase(ch);
 			if(temp.link[ch]!=null){
 				temp=temp.link[ch];
 			}
