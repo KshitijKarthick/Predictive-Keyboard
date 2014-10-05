@@ -13,6 +13,6 @@
    * A GUI interface which then maps the buttons with respective characters and used to type in for prediction.
    * Conventional keyboard can be used for typing.
    * On Screen Keyboard can be used for typing.
-   * Special Buttons facility is available,
+   * Special Buttons facility is available.
    * Change of Case facility is available.
    * Dictionary.txt stores all the words used.
