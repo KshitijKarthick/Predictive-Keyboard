@@ -18,7 +18,7 @@
    * Change of Case facility is available.
    * Dictionary.txt stores all the words used.
 
-## Execution :
+## Program Execution :
 ```
   # Windows and Posix OS Compliant.
   > cd Predictive-Keyboard/dist
