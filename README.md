@@ -5,6 +5,8 @@
    * Rank Based Predictive Algorithm which keeps evolving based on the Usage.
    * Accuracy of the Algorithm improves based on the usage.
 
+![Image](/img/mainWindow.png "GUI Interface")
+
 ## Program Details :
    * Program is written in Java.
    * Employs trie's to store and search for the word.
@@ -24,6 +26,10 @@
   > cd Predictive-Keyboard/dist
   > java -jar Predictive-Keyboard
 ```
+## Working :
+  * Prediction
+![Image](/img/prediction.png "Prediction Functionality")
+
 ## To Do :
   * Add larget set of special symbols.
   * Add numeric symbols.
