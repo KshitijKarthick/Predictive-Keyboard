@@ -28,6 +28,7 @@
 ```
 ## Working :
   * Prediction
+
 ![Image](/img/prediction.png "Prediction Functionality")
 
 ## To Do :
